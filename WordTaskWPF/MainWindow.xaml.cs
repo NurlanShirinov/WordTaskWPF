@@ -21,10 +21,13 @@ namespace WordTaskWPF
     /// </summary>
     public partial class MainWindow : Window
     {
-        public string helpString { get; set; }
+        string filePath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+
+        
         public MainWindow()
         {
             InitializeComponent();
+            PathTxtB.Text = filePath;
         }
 
         private void cutBtn_Click(object sender, RoutedEventArgs e)
@@ -54,8 +57,11 @@ namespace WordTaskWPF
 
         private void SaveItem_Click(object sender, RoutedEventArgs e)
         {
-            string path = "C:/Users/Shir_qs82/Desktop";
-            File.WriteAllText(path,TextBox1.Text);
+            filePath = filePath + "/Your.txt";
+            TextWriter sw = new StreamWriter(filePath);
+            sw.WriteLine(TextBox1.Text);
+            sw.Close();
+            MessageBox.Show("File txt creato correttamente");
         }
     }
 }

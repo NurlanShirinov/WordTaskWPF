@@ -110,6 +110,7 @@
                 <WrapPanel>
                     <ToolBar Width="800" Height="35" TabIndex="0">
                         <TextBox Width="80"
+                                 Name="PathTxtB"
                                  Height="25"
                                  FontFamily="15" 
                                  FontStyle="Italic" 
